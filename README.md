@@ -1,11 +1,11 @@
 
-#About
-
-This repository contains my work for Udacity's Data Analyst Nanodegree program, July 2015 cohort.
+##Data Analyst Nanodegree Portfolio
 
 <img src="https://pbs.twimg.com/media/B4LemTlIMAAy8AM.jpg">
 
-#Projects:
+This repository contains my work for Udacity's Data Analyst Nanodegree program, July 2015 cohort.
+
+##Projects:
 
 * *Project 2:* Analyzing the NYC Subway Dataset
 * *Project 3:* Data Wrangle OpenStreetMaps Data
@@ -14,7 +14,7 @@ This repository contains my work for Udacity's Data Analyst Nanodegree program, 
 * *Project 6:* Tell Stories with Data Visualization 
 * *Project 7:* Design and Analyze an A/B Test 
 
-#Courses taken:
+##Courses taken:
 * Statistics
 * Intro to Data Science
 * Data Wrangling with MongoDB
@@ -23,7 +23,7 @@ This repository contains my work for Udacity's Data Analyst Nanodegree program, 
 * Data Visualization and D3.js
 * A/B Testing
 
-#Skills acquired:
+##Skills acquired:
 * Python (inc. numpy, pandas, scikit-learn, ggplot...)
 * MongoDB
 * MapReduce
