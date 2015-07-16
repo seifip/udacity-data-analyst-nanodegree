@@ -24,7 +24,7 @@ As a general note, be sure to keep a record of any resources that you use or ref
 
 ![Normal probability plot (Congruent)](pp-congruent.png) ![Normal probability plot (Incongruent)](pp-incongruent.png)
 
-The data is roughly normally distributed, with a slight left tail. I will use a two-tailed dependent t-test because we are comparing two dependent samples of data and have no prior expectations as to the direction of the outcome.
+The data is roughly normally distributed, with a slight left tail. I will use a two-tailed dependent t-test because we are comparing two dependent samples of data.
 
 ####3. Report some descriptive statistics regarding this dataset.
 
