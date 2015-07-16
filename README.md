@@ -17,6 +17,7 @@ This repository contains my work for Udacity's Data Analyst Nanodegree program, 
 
 ##Courses taken:
 * Statistics
+* Intro to Python
 * Intro to Data Science
 * Data Wrangling with MongoDB
 * Data Analysis with R
