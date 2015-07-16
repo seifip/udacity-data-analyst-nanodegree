@@ -46,7 +46,7 @@ The data is roughly normally distributed, with a slight left tail. I will use a 
 
 Congruent tasks appear to be consistently completed faster than incongruent tasks.
 
-####5. Now, perform the statistical test and report your results. What is your confidence level and your critical statistic value? Do you reject the null hypothesis or fail to reject it? Come to a conclusion in terms of the experiment task. Did the results match up with your expectations?
+####5. What is your confidence level and your critical statistic value? Do you reject the null hypothesis or fail to reject it? Come to a conclusion in terms of the experiment task. Did the results match up with your expectations?
 
 * **µD:** -7.9648
 * **S:** 4.86482691
