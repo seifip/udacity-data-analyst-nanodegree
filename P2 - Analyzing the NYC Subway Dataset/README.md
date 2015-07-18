@@ -9,18 +9,19 @@ In a Stroop task, participants are presented with a list of words, with each wor
 ####1.1 Which statistical test did you use to analyze the NYC subway data? Did you use a one-tail or a two-tail P value? What is the null hypothesis? What is your p-critical value?
 I used the Mann-Whitney U-test with a two-tail P value. H0: If we draw randomly from two distributions, neither is more likely to generate a higher value. In the case of this study, if we looked at a random day from the rain sample and the no-rain sample, neither is more likely to show a higher ridership.
 
-**P-critical value:** 0.05
+```
+P-critical value: 0.05
+```
 
 ####1.2 Why is this statistical test applicable to the dataset? In particular, consider the assumptions that the test is making about the distribution of ridership in the two samples.
 The ridership data is not normally distributed. Although the large number of samples allowed for the use of the Welch's T-test to analyze the data, I opted for the Mann-Whitney U-test which does not make the assumption that the data follows a Gaussian distribution, and is not as susceptible to outliers that may be present in the dataset.
 
 ####1.3 What results did you get from this statistical test? These should include the following numerical values: p-values, as well as the means for each of the two samples under test.
-
-**Mean with rain:** 1105.45
-
-**Mean without rain:** 1090.28
-
-**P-value:** 0.049
+```
+Mean with rain: 1105.45
+Mean without rain: 1090.28
+P-value: 0.049
+```
 
 ####1.4 What is the significance and interpretation of these results?
 The P-value of the Mann-Whitney U test is 0.05 so we can conclude that the difference between the two means is not due to chance and applies to the entire population. We can thus reject the null hypothesis that rain has no impact on MTA subway ridership. The means of the two samples suggest that ridership increases when it is raining.
@@ -47,8 +48,10 @@ meantempi         -10.086360
 meanpressurei    -328.596009
 ```
 
-####2.5 What is your model’s R2 (coefficients of determination) value?
-0.53
+####2.5 What is your model’s R^2 (coefficients of determination) value?
+```
+R^2: 0.53
+```
 
 ####2.6 What does this R2 value mean for the goodness of fit for your regression model? Do you think this linear model to predict ridership is appropriate for this dataset, given this R2  value?
 R^2 measures the distance between the data and the fitted regression line, that is, the percentage of the variation that is explained by the model. In this case, R^2 of 0.49 indicates that only 49% of the variation is explained by our model. To confirm the goodness of fit, I have generated a residuals vs. fitted values plot.
@@ -67,7 +70,7 @@ The histogram of ridership on rainy and non-rainy days shows that both distribut
 
 ![Daily MTA entries and mean temperatures in May](mta-weather-days.png)
 
-The scatter plot compares ridership on different days in May. The colour indicates the mean temperature that day, ranging from 55 to 77.6F. Markers that fall on weekends (Saturday, Sunday) have been doubled in size. 
+The scatter plot compares ridership on different days in May. The colour indicates the mean temperature that day, ranging from 55 to 77.6°F. Markers that fall on weekends (Saturday, Sunday) have been doubled in size. 
 
 This plot suggests that there is little or no correlation between mean temperature and ridership. On the other hand, there is a clear pattern throughout the month indicating a strong fall in ridership during the weekends.
 
