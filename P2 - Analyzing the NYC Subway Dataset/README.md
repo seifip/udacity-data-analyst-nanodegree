@@ -1,8 +1,7 @@
 #Project 2: Analyzing the NYC Subway Dataset
-##Background information
-In a Stroop task, participants are presented with a list of words, with each word displayed in a color of ink. The participant’s task is to say out loud the color of the ink in which the word is printed. The task has two conditions: a congruent words condition, and an incongruent words condition. In the congruent words condition, the words being displayed are color words whose names match the colors in which they are printed. In the incongruent words condition, the words displayed are color words whose names do not match the colors in which they are printed. In each case, we measure the time it takes to name the ink colors in equally-sized lists. Each participant will go through and record a time from each condition.
+In this project, I combine MTA and Weather Underground data to analyze the relationship between NYC subway ridership and a number of variables including temperature, precipitation, day of the week and more.
 
-**Dataset:** [View CSV](stroopdata.csv)
+**Dataset:** [View CSV](turnstile_data_master_with_weather.csv)
 
 ##1. Statistical test
 
