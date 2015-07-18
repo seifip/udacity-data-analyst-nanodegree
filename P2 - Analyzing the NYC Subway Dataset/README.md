@@ -94,6 +94,3 @@ Processing power limitations only allowed regression analysis of part of the dat
 Furthermore, the dataset includes numerous variables that may exhibit colinearity, such as mintempi, maxtempi and meantempi. 
 
 Finally, the predictions have been limited by the use of linear regression analysis. Some of the predictor variables may in fact have a non-linear effect and a non-linear model could thus provide for more accurate predictions.
-
-####5.2 (Optional) Do you have any other insight about the dataset that you would like to share with us?
-It would be great to have location data on the individual turnstiles in order to plot them on a map.
