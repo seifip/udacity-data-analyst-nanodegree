@@ -28,14 +28,16 @@ The data is roughly normally distributed, with a slight left tail. I will use a 
 ####3. Report some descriptive statistics regarding this dataset.
 
 **Congruent**
-
-* **Mean:** 14.0
-* **SD:** 3.6
+```
+Mean: 14.0
+SD: 3.6
+```
 
 **Incongruent**
-
-* **Mean:** 22.0
-* **SD:** 4.8
+```
+Mean: 22.0
+SD: 4.8
+```
 
 ####4. Provide one or two visualizations that show the distribution of the sample data. Write one or two sentences noting what you observe about the plot or plots.
 
@@ -46,21 +48,20 @@ The data is roughly normally distributed, with a slight left tail. I will use a 
 Congruent tasks appear to be consistently completed faster than incongruent tasks.
 
 ####5. What is your confidence level and your critical statistic value? Do you reject the null hypothesis or fail to reject it? Come to a conclusion in terms of the experiment task. Did the results match up with your expectations?
-
-* **µD:** -7.9648
-* **S:** 4.86482691
-* **df:** 23
-* **t-stat:** -8.020706944
-* **at α 0.05, t-critical:** -2.06865761; 2.06865761
-* **P:** 4.103E-08
-* **95% CI:** (-25.3527231, 9.42314)
+```
+µD: -7.9648
+S: 4.86482691
+df: 23
+t-stat: -8.020706944
+at α 0.05, t-critical: -2.06865761; 2.06865761
+P: 4.103E-08
+95% CI: (-25.3527231, 9.42314)
+```
 
 **Null hypothesis rejected.** At α 0.05, the *time to name colours is significantly
 different* between congruent and incongruent tasks. People do not name colours
 at the same speed when the word’s meaning and its colour match, as when they
 do not match. The result confirms my expectations.
-
-
 
 ####6. Optional: What do you think is responsible for the effects observed? Can you think of an alternative or similar task that would result in a similar effect?
 
