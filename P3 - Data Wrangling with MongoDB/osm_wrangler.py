@@ -215,6 +215,12 @@ def audit_report():
     pprint.pprint(audit_data[1])
     pprint.pprint(dict(audit_data[2]))
 
+'''
+PRINT OUT AUDIT REPORT
+'''
 #audit_report()
 
+'''
+PROCESS DATA AND OUTPUT JSON
+'''
 process_map(OSMFILE, False)

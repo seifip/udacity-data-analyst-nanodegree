@@ -204,3 +204,127 @@ A very large number of buildings in the dataset are gers (traditional Mongolian 
 It would be an interesting project to introduce cheap GPS locators in Mongolia as a means of constantly updating ger locations in OSM, governmental databases, as well as to simplify delivery of mail in remote areas.
 
 Such a project may cause privacy concerns, but is arguably not unlike a regular cadastre in other countries. The cost should equally be acceptable given the low price of GPS receivers, low population of the country, and most importantly the considerable benefits resulting from its implementation.
+
+###Common amenities
+```
+// top 5 amenities
+> db.char.aggregate([{
+>                         $match:{
+>                             'amenity':{$exists:1}
+>                             }
+>                    },{
+>                         $group:{
+>                             '_id':'$amenity'
+>                           , 'count':{$sum:1}
+>                             }
+>                    },{
+>                         $sort:{'count':-1}
+>                    },{
+>                         $limit:5
+>                    }])
+
+/* RESULTS */
+
+Type: parking
+Count: 344
+
+Type: restaurant
+Count: 195
+
+Type: school
+Count: 133
+
+Type: bench
+Count: 84
+
+Type: hospital
+Count: 74
+```
+
+The large number of parking spots may be the effect of organization of apartment buildings into blocks with a courtyard in the middle, a system likely imported from the Soviet Union.
+
+The courtyard commonly includes a playspace for children, some benches, and oftentimes also parking spots for guests and residents.
+
+###Places of worship
+```
+// top 5 places of worship
+> db.osm_ub.aggregate([{
+>                         $match:{
+>                             "amenity":{$exists:1}
+>                           , "amenity":"place_of_worship"
+>                         }
+>                      },{
+>                         $group:{
+>                             "_id":"$religion"
+>                           , "count":{$sum:1}
+>                         }
+>                      },{
+>                         $sort:{"count":-1}
+>                      },{
+>                         $limit:5
+>                      }])
+
+/* RESULTS */
+
+Religion: Buddhist
+Count: 15
+
+Religion: null
+Count: 9
+
+Religion: shamanic
+Count: 3
+
+Religion: Christian
+Count: 3
+
+Religion: Muslim
+Count: 1
+```
+
+The dataset may benefit from some cleaning in this area as many of the places of worship without a defined religion field are in fact misclassified. Probably the best example of such misclassification, and possibly a sarcastic comment on the Mongolian judicial system, is the Constitutional Court of Mongolia.
+
+The results are otherwise unsurprising. At 53% (CIA World Factbook), Buddhism is the dominant religion in the country and this is reflected in the number of temples.
+
+Muslims, Christians and Shamanists then account for 3%, 2.2% and 2.9% of the population respectively. The greater number of Christian churches may be explained by the presence of a number of different denominations in the country.
+
+As for shamanism, although only a small part of the population identifies with it in surveys, it nevertheless remains an important part of Mongolian tradition and culture, often mingled with Buddhism.
+
+###Favourite cuisine
+```
+// top 5 restaurant types
+> db.osm_ub.aggregate([{
+>                         $match:{
+>                             "amenity":{$exists:1}
+>                           , "amenity":"restaurant"
+>                             }
+>                    },{
+>                         $group:{
+>                             "_id":"$cuisine"
+>                           , "count":{$sum:1}
+>                           }
+>                    },{
+>                         $sort:{"count":-1}
+>                    },{
+>                         $limit:5
+>                    }])
+
+/* RESULTS */
+
+Cuisine: null
+Count: 172
+
+Cuisine: regional
+Count: 7
+
+Cuisine: Indian
+Count: 4
+
+Cuisine: Italian
+Count: 3
+
+Cuisine: Chinese
+Count: 2
+```
+
+Information about restaurants is clearly lacking in this dataset and would greatly benefit from contributions by Ulaanbaatar residents. The absolute majority of restaurants are uncategorized, and the query doesn't do any justice to the variety of international cuisines represented in the Mongolian capital.
