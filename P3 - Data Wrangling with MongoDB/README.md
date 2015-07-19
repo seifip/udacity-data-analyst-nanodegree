@@ -9,14 +9,14 @@ Before converting the OpenStreetMap XML into JSON format for inport into MongoDB
 ###Street name inconsistencies
 The dataset presented a number of inconsistencies in names of strets and other thoroughfares:
 * Abbreviations
-* * Sq > Square
+** Sq > Square
 * Lowecase
-* * street > Street
+** street > Street
 * Mongolian names
-* * Zam > Road
-* * Toiruu > Ring Road
+** Zam > Road
+** Toiruu > Ring Road
 * Space omission
-* * PeaceAvenue > Peace Avenue
+** PeaceAvenue > Peace Avenue
 
 These were corrected using the following replacement map:
 ```
