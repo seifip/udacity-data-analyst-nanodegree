@@ -103,8 +103,9 @@ Result: 653629
 > db.osm_ub.find({'type':'node'}).count()
 
 Result: 583000
+```
 
-
+```
 // number of ways
 // (an ordered list of nodes)
 > db.osm_ub.find({'type':'way'}).count()                                                
