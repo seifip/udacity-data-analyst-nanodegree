@@ -176,26 +176,27 @@ Result: 62
 >                         $limit: 5
 >                      }])
 
-{
-    "_id" : "yes", //default OSM value for Key:building
-    "count" : 31855.
-}, 
-{
-    "_id" : "hut", //mostly traditional gers/yurts
-    "count" : 8862.
-}, 
-{
-    "_id" : "house",
-    "count" : 872.
-}, 
-{
-    "_id" : "apartments",
-    "count" : 227.
-}, 
-{
-    "_id" : "garages",
-    "count" : 59.
-}
+/* RESULTS */
+
+//default OSM value for Key:building
+Type: yes
+Count: 31855
+
+//mostly gers/yurts, traditional mobile dwellings
+Type: hut
+Count: 8862
+
+// dwelling unit inhabited by a single household
+Type: house
+Count: 872
+
+//building with individual dwellings, often on separate floors
+Type: apartments
+Count: 227
+
+//a number of discrete storage spaces for different owners/tenants
+Type: garages
+Count: 59
 ```
 
 A very large number of buildings in the dataset are gers (traditional Mongolian huts). Although most residents of the capital, including those living in gers, are not nomadic, the structure remains intrinsically mobile. I would thus expect that many of the ger locations in the dataset are outdated, especially compared to more permanent building types such as houses.
