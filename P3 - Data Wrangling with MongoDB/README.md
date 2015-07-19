@@ -90,24 +90,36 @@ number of chosen type of nodes, like cafes, shops etc
 
 ###Dataset size
 ```
+// total number of documents in the database
 > db.osm_ub.find().count()                                                
-653629
+
+Result: 653629
 ```
 
 ###Dataset composition
 ```
-> db.osm_ub.find({'type':'node'}).count()                                                
-583001
+// number of nodes
+// (a single point in space defined by its latitude, longitude and id)
+> db.osm_ub.find({'type':'node'}).count()
 
+Result: 583000
+
+
+// number of ways
+// (an ordered list of nodes)
 > db.osm_ub.find({'type':'way'}).count()                                                
-70597
+
+Result: 70597
 ```
 
 ###Dataset contributors
 ```
+// number of unique users
 > db.osm_ub.distinct('created.user').length
-399
 
+Result: 399
+
+// top 1 contributing user
 > db.osm_ub.aggregate([{
 >                         $group:{
 >                               '_id':'$created.user'
@@ -118,8 +130,12 @@ number of chosen type of nodes, like cafes, shops etc
 >                      }, {
 >                         $limit:1
 >                      }])
-{"_id" : "tmaybe", "count" : 83253 }
 
+Name: tmaybe
+Contributions: 83253
+
+
+// number of users with only one contribution
 > db.osm_ub.aggregate([{
 >                         $group:{
 >                               '_id':'$created.user'
@@ -137,12 +153,14 @@ number of chosen type of nodes, like cafes, shops etc
 >                      },{
 >                         $limit:1
 >                     }])
-{"_id" : 1, "num_users" : 62}
+
+Result: 62
 ```
 
 ##3. Additional thoughts and ideas
 ###Dominant building types
 ```
+// top 5 building types
 > db.osm_ub.aggregate([{
 >                         $match: {
 >                             'building': {$exists: 1}
