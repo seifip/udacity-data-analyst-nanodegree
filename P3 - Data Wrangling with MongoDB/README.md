@@ -293,6 +293,9 @@ The dataset may benefit from some cleaning in this area as many of the places of
 
 The results are otherwise unsurprising. At 53% (CIA World Factbook), Buddhism is the dominant religion in the country and this is reflected in the number of temples.
 
+![Gandantegchinlen Monastery](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Zesp%C3%B3%C5%82_klasztoru_Gandan_%2812%29.jpg/627px-Zesp%C3%B3%C5%82_klasztoru_Gandan_%2812%29.jpg)
+<br><sub>[_Photo by Hons084_](https://en.wikipedia.org/wiki/File:Zesp%C3%B3%C5%82_klasztoru_Gandan_(12).jpg)</sub>
+
 Muslims, Christians and Shamanists then account for 3%, 2.2% and 2.9% of the population respectively. The greater number of Christian churches may be explained by the presence of a number of different denominations in the country.
 
 As for shamanism, although only a small part of the population identifies with it in surveys, it nevertheless remains an important part of Mongolian tradition and culture, often mingled with Buddhism.
