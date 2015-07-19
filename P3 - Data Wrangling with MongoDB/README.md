@@ -1,6 +1,8 @@
 #Project 3: OpenStreetMap Data Wrangling with MongoDB
 In this project, I use data munging techniques, such as assessing the quality of the data for validity, accuracy, completeness, consistency and uniformity, to clean OpenStreetMap data for [Ulaanbaatar](https://en.wikipedia.org/wiki/Ulan_Bator), capital of Mongolia.
 
+![OpenStreetMap logo](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Openstreetmap_logo.svg/256px-Openstreetmap_logo.svg.png)
+
 **Dataset:** [Mapzen metro extract XML](https://s3.amazonaws.com/metro-extracts.mapzen.com/ulaanbaatar_mongolia.osm.bz2)
 
 ##1. Data audit
@@ -158,23 +160,23 @@ number of chosen type of nodes, like cafes, shops etc
 
 {
     "_id" : "yes", //default OSM value for Key:building
-    "count" : 31855.0000000000000000
+    "count" : 31855.
 }, 
 {
     "_id" : "hut", //mostly traditional gers/yurts
-    "count" : 8862.0000000000000000
+    "count" : 8862.
 }, 
 {
     "_id" : "house",
-    "count" : 872.0000000000000000
+    "count" : 872.
 }, 
 {
     "_id" : "apartments",
-    "count" : 227.0000000000000000
+    "count" : 227.
 }, 
 {
     "_id" : "garages",
-    "count" : 59.0000000000000000
+    "count" : 59.
 }
 ```
 
