@@ -1,7 +1,7 @@
 #Project 3: Ulaanbaatar OpenStreetMap Data Wrangling with MongoDB
 In this project, I use data munging techniques, such as assessing the quality of the data for validity, accuracy, completeness, consistency and uniformity, to clean OpenStreetMap data for [Ulaanbaatar](https://en.wikipedia.org/wiki/Ulan_Bator), capital of Mongolia.
 
-![OpenStreetMap logo](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Openstreetmap_logo.svg/256px-Openstreetmap_logo.svg.png)
+![Flag of Ulaanbaatar](https://upload.wikimedia.org/wikipedia/commons/1/1e/Mn_flag_ulaanbaatar.png)
 
 **Dataset:** [Mapzen metro extract XML](https://s3.amazonaws.com/metro-extracts.mapzen.com/ulaanbaatar_mongolia.osm.bz2)
 
