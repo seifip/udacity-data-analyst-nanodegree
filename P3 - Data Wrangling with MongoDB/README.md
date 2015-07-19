@@ -205,6 +205,9 @@ Count: 59
 
 A very large number of buildings in the dataset are gers (traditional Mongolian huts). Although most residents of the capital, including those living in gers, are not nomadic, the structure remains intrinsically mobile. I would thus expect that many of the ger locations in the dataset are outdated, especially compared to more permanent building types such as houses.
 
+![Mongolian yurt](https://upload.wikimedia.org/wikipedia/commons/9/9b/Gurvger.jpg)
+<br><sub>[_Photo by Adagio_](https://en.wikipedia.org/wiki/File:Gurvger.jpg)</sub>
+
 It would be an interesting project to introduce cheap GPS locators in Mongolia as a means of constantly updating ger locations in OSM, governmental databases, as well as to simplify delivery of mail in remote areas.
 
 Such a project may cause privacy concerns, but is arguably not unlike a regular cadastre in other countries. The cost should equally be acceptable given the low price of GPS receivers, low population of the country, and most importantly the considerable benefits resulting from its implementation.
