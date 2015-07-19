@@ -1,4 +1,4 @@
-#Project 3: OpenStreetMap Data Wrangling with MongoDB
+#Project 3: Ulaanbaatar OpenStreetMap Data Wrangling with MongoDB
 In this project, I use data munging techniques, such as assessing the quality of the data for validity, accuracy, completeness, consistency and uniformity, to clean OpenStreetMap data for [Ulaanbaatar](https://en.wikipedia.org/wiki/Ulan_Bator), capital of Mongolia.
 
 ![OpenStreetMap logo](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Openstreetmap_logo.svg/256px-Openstreetmap_logo.svg.png)
@@ -118,7 +118,9 @@ Result: 70597
 > db.osm_ub.distinct('created.user').length
 
 Result: 399
+```
 
+```
 // top 1 contributing user
 > db.osm_ub.aggregate([{
 >                         $group:{
@@ -133,8 +135,9 @@ Result: 399
 
 Name: tmaybe
 Contributions: 83253
+```
 
-
+```
 // number of users with only one contribution
 > db.osm_ub.aggregate([{
 >                         $group:{
