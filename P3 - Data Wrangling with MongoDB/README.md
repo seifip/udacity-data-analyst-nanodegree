@@ -161,7 +161,7 @@ Contributions: 83253
 Result: 62
 ```
 
-##3. Additional thoughts and ideas
+##3. Additional insights
 ###Dominant building types
 ```
 // top 5 building types
@@ -207,10 +207,6 @@ A very large number of buildings in the dataset are gers (traditional Mongolian 
 
 ![Mongolian yurt](https://upload.wikimedia.org/wikipedia/commons/9/9b/Gurvger.jpg)
 <br><sub>[_Photo by Adagio_](https://en.wikipedia.org/wiki/File:Gurvger.jpg)</sub>
-
-It would be an interesting project to introduce cheap GPS locators in Mongolia as a means of constantly updating ger locations in OSM, governmental databases, as well as to simplify delivery of mail in remote areas.
-
-Such a project may cause privacy concerns, but is arguably not unlike a regular cadastre in other countries. The cost should equally be acceptable given the low price of GPS receivers, low population of the country, and most importantly the considerable benefits resulting from its implementation.
 
 ###Common amenities
 ```
@@ -338,3 +334,21 @@ Count: 2
 ```
 
 Information about restaurants is clearly lacking in this dataset and would greatly benefit from contributions by Ulaanbaatar residents. The absolute majority of restaurants are uncategorized, and the query doesn't do any justice to the variety of international cuisines represented in the Mongolian capital.
+
+##4. Areas for improvement
+Although OpenStreetMap data for the city of Ulaanbaatar is of reasonable quality when it comes to basic topography, ger neighbourhood data remains incomplete. The data is also poor in additional information such as amenities, tourist attractions, and other points of interest.
+
+Already today, however, the level of detail of Ulaanbaatar OSM data is incomparable to that of Google Maps or Bing Maps. This gives me great hope for the project, and shows the importance of collaborative mapping in areas of the world ignored by major mapping companies.
+
+![Ulaanbaatar OpenStreetMap vs Google Maps](gm_vs_osm_ub.jpg)
+<br><sub>[_Image from In Asia_](http://asiafoundation.org/in-asia/2015/06/24/an-aerial-sensing-map-a-thon-in-mongolia/)</sub>
+
+###Mapping the gers
+It would be an interesting project to introduce cheap geolocators in Mongolia as a means of constantly updating ger locations in OSM, governmental databases, as well as to simplify delivery of mail in remote areas.
+
+Such a project may cause privacy concerns, but is arguably not unlike a regular cadastre in other countries. The cost should equally be acceptable given the low price of GPS receivers, low population of the country, and most importantly the considerable benefits resulting from its implementation.
+
+###Expanding the POI database
+One approach to improving the data on points of interests in Ulaanbaatar would be to partner with [Foursquare](https://foursquare.com/), the local search and discovery service which already makes use of OpenStreetMap in their online and mobile products.
+
+Foursquare data on Ulaanbaatar restaurants, entertainment venues and other amenities is reasonably extensive, very detailed, and would greatly improve the OSM dataset for the city.
