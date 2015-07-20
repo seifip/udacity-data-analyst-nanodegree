@@ -12,7 +12,7 @@ Before converting the OpenStreetMap XML into JSON format for inport into MongoDB
 The dataset presented a number of inconsistencies in names of strets and other thoroughfares:
 * Abbreviations
   * Sq > Square
-* Lowecase
+* Lowercase
   * street > Street
 * Mongolian names
   * Zam > Road
