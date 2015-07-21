@@ -1,9 +1,10 @@
-#Project 3: Ulaanbaatar OpenStreetMap Data Wrangling with MongoDB
-In this project, I use data munging techniques, such as assessing the quality of the data for validity, accuracy, completeness, consistency and uniformity, to clean OpenStreetMap data for [Ulaanbaatar](https://en.wikipedia.org/wiki/Ulan_Bator), capital of Mongolia.
+#Project 3: Exploring and Summarizing Hillary 2016 Contribution Data
+In this project, I conduct exploratory data analysis on the 2016 presidential campaign contribution data of Hillary Rodham Clinton, from April 1st to July 1st 2015. My goal is to find new insights in the dataset and identify avenues for further investigation.
 
-![Flag of Ulaanbaatar](https://upload.wikimedia.org/wikipedia/commons/1/1e/Mn_flag_ulaanbaatar.png)
+![Hillary Clinton 2016](hillary-clinton-2016-president-election.jpg)
 
 **Dataset:** [CSV from fec.gov](http://fec.gov/disclosurep/PDownload.do)
+
 **Format:** ftp://ftp.fec.gov/FEC/Presidential_Map/2016/DATA_DICTIONARIES/CONTRIBUTOR_FORMAT.txt
 
 _See Knittr `hillary_2015-contribs.Rmd` and `hillary_2015-contribs.html` for detailed analysis._
