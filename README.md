@@ -16,7 +16,9 @@ This repository contains my work for Udacity's Data Analyst Nanodegree program, 
 * *Project 7:* Design and Analyze an A/B Test 
 
 ##Courses taken:
-* Statistics
+* Intro to Statistics
+* Intro to Descriptive Statistics
+* Intro to Inferential Statistics
 * Intro to Python
 * Intro to Data Science
 * Data Wrangling with MongoDB
