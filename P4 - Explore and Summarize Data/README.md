@@ -5,7 +5,7 @@ In this project, I conduct exploratory data analysis on the 2016 presidential ca
 
 **Dataset:** [CSV from fec.gov](http://fec.gov/disclosurep/PDownload.do)
 
-**Format:** ftp://ftp.fec.gov/FEC/Presidential_Map/2016/DATA_DICTIONARIES/CONTRIBUTOR_FORMAT.txt
+**Format:** [Data Dictionary at fec.gov](ftp://ftp.fec.gov/FEC/Presidential_Map/2016/DATA_DICTIONARIES/CONTRIBUTOR_FORMAT.txt)
 
 _See Knittr `hillary_2015-contribs.Rmd` and `hillary_2015-contribs.html` for detailed analysis._
 
