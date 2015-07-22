@@ -7,7 +7,11 @@ In this project, I conduct exploratory data analysis on the 2016 presidential ca
 
 **Format:** [Data Dictionary at fec.gov](ftp://ftp.fec.gov/FEC/Presidential_Map/2016/DATA_DICTIONARIES/CONTRIBUTOR_FORMAT.txt)
 
-_See Knittr `hillary_2015-contribs.Rmd` and `hillary_2015-contribs.html` for detailed analysis._
+##Detailed analysis
+
+[EDA of Hillary 2016 Contributions](https://cdn.rawgit.com/seifip/udacity-data-analyst-nanodegree/master/P4%20-%20Explore%20and%20Summarize%20Data/hillary_2015-contribs.html)
+
+*Also see Knittr `hillary_2015-contribs.Rmd` in the repository.*
 
 ##Final plots and summary
 
