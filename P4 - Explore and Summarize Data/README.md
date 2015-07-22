@@ -43,7 +43,7 @@ Why is Texas, a predominantly Republican state, one of the top sources of contri
 
 I tried to investigate this question by exploring contributions by employer using a Texas subset of the data, but discovered no easy explanation.
 
-It may be worthwhile to explore the Texas subset further, at a more granular level, mapping contributions by ZIP code.
+Generating a more granualar choropleth of contributions from Texas, using the ZIP code information showed that most contributions come from a few select areas of the state. This is not surprising, but any further conclusions require a better knowledge of the demographics of Texas than I possess, and ideally data on political affiliations of the individual regions.
 
 ###4. Contribution time series
 
@@ -72,6 +72,6 @@ Other findings were more surprising, however:
 
 * Texas, a [predominantly Republican state](https://en.wikipedia.org/wiki/Politics_of_Texas), is among the top 10 sources of contributions to Hillary Clinton's campaign.
 
-* The self-employed are clearly, by far, the largest contributors to Hillary Clinton's campaign. This is surprising, given that the self-employed traditionally vote GOP. Of course, without analysis of all contributions in this electoral cycle, it is impossible to tell whether an even larger number of self-employed Americans contribute to Republican candidates, as one would expect, given that Republicans are roughly 50% more likely to be self-employed (Fried, pp. 104–5, 125.)
+* The self-employed are clearly, by far, the largest contributors to Hillary Clinton's campaign. This is surprising, given that Republicans are roughly 50% more likely to be self-employed (Fried, pp. 104–5, 125.). Of course, without analysis of all contributions in this electoral cycle, it is impossible to tell whether an even larger number of self-employed Americans contribute to GOP candidates.
 
 It would be most interesting to explore this dataset further by combining it with data from Hillary Clinton's 2008 presidential campaign. Have Hillary's contribution sources changed since 8 years ago? Could we predict current and future contributors using data from previous elections? These are all important questions that could be studied using a combined dataset.
