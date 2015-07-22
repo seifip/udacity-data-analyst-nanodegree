@@ -68,14 +68,17 @@ To begin with, I chose to omitt all entries above the [$2700 contribution limit]
 
 I then used these findings and my domain expertise to explore contribution numbers and amounts across a number of variables including occupation, employer, and state.
 
-Some findings where not surprising. Contributions to Hillary's campaign tend to come from California and the city of New York, they tend to be made by the retired, and law firms are some of the major employers behind these contributors.
+Some findings where not surprising:
+
+* Contributions to Hillary's campaign tend to come from California and the city of New York
+* Contributions tend to be made by the retired
+* Law firms are some of the major employers behind the contributors
+* More women are contributing to the campaign, but their median contributions are lower (The dataset does not include gender information. Instead, I predicted contributors' gender from their first name, based on the Social Security Administration data)
 
 Other findings were more surprising, however:
 
 * Physicians, who are [among the best paid in the country](http://www.bls.gov/oes/current/oes_nat.htm),  make very small contributions compared to other occupations.
-
 * Texas, a [predominantly Republican state](https://en.wikipedia.org/wiki/Politics_of_Texas), is among the top 10 sources of contributions to Hillary Clinton's campaign.
-
 * The self-employed are clearly, by far, the largest contributors to Hillary Clinton's campaign. This is surprising, given that Republicans are roughly 50% more likely to be self-employed (Fried, pp. 104–5, 125.). Of course, without analysis of all contributions in this electoral cycle, it is impossible to tell whether an even larger number of self-employed Americans contribute to GOP candidates.
 
 It would be most interesting to explore this dataset further by combining it with data from Hillary Clinton's 2008 presidential campaign. Have Hillary's contribution sources changed since 8 years ago? Could we predict current and future contributors using data from previous elections? These are all important questions that could be studied using a combined dataset.
