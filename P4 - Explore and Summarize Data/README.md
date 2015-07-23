@@ -53,7 +53,7 @@ Generating a more granualar choropleth of contributions from Texas, using the ZI
 
 ![Contribution time series](contribs_time.png)
 
-Plotting contributions from April 1st till July 1st, gives us yet another perspective on the data. 
+Plotting contributions from April 12th, when Hillary Clinton announced her candidacy, till July 1stm, faceted by origin states' political affiliations gives us yet another perspective on the data. 
 
 Contributions appear to be remarkably consistent. A an increase in small contributions (< $250) can be observed in the last few months. This could be seasonal, or a natural evolution as the electoral cycle progresses.
 
