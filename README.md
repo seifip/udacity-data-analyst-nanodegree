@@ -30,5 +30,5 @@ This repository contains my work for Udacity's Data Analyst Nanodegree program, 
 * Python (inc. numpy, pandas, scikit-learn, ggplot...)
 * MongoDB
 * MapReduce
-* R
-* D3.js
+* R (inc. dplyr, ggplot...)
+* D3.js & Dimple.js
