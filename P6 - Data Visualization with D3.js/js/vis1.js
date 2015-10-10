@@ -154,8 +154,7 @@ var chart = function() {
         .enter()
         .append("g")
         .attr("id", function(d) { return d.id; })
-        .attr("class", "pill")
-        .attr("opacity", 0);
+        .attr("class", "pill");
 
       defpills.append("g").attr("clip-path", "url(#pill)")
         .each(function(d,i) {
@@ -170,7 +169,6 @@ var chart = function() {
         .enter()
         .append("line")
         .attr("class", "link")
-        .attr("opacity", 0)
         .attr("x1", function(d,i) { return ((pillWidth + yearSpace) * d.gap) - (yearSpace ); })
         .attr("y1", function(d,i) { return (pillHeight + pillSpace) * (d.start - 1) + (pillHeight / 2); })
         .attr("x2", function(d,i) { return ((pillWidth + yearSpace) * d.gap); })
@@ -232,29 +230,16 @@ var chart = function() {
   };
 
   function animateIn() {
-    n = 0;
-    var langsInterval = setInterval(function() {
-      defs.selectAll(".pill")
-        .transition()
-        .duration(800)
-        .attr("opacity", function(d) { return (pillTypes[n].id === d.id) ? 1 : 0; })      
-      g.selectAll(".link")
-        .transition()
-        .duration(800)
-        .attr("opacity", function(d) { return (pillTypes[n].id === d.id) ? 1 : 0; })
+    $(".year, .link").hide();
+    $(".link").fadeIn(6000);
+    var n = 0;
+    var year_interval = setInterval(function() {
+      $(".year-"+years[n]).fadeIn(1000);
       n++
-      if(n >= pillTypes.length) {
-          clearInterval(langsInterval);
-          defs.selectAll(".pill")
-            .transition()
-            .duration(800)
-            .attr("opacity", 1)
-          g.selectAll(".link")
-            .transition()
-            .duration(800)
-            .attr("opacity", 1)
+      if(n >= years.length) {
+          clearInterval(year_interval);
       }
-    }, 3000);
+    }, 2000);
   }
 
   function highlightBranch(d,i) {
