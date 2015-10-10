@@ -1,0 +1,112 @@
+body, input, textarea {
+  font-family: 'proxima-nova-1', sans-serif;
+  font-size: 11px;
+}
+
+a, a:visited, a:focus {
+  color: black;
+}
+
+.container {
+  padding: 0 10px 80px;
+}
+
+.title {
+  font-family: 'proxima-nova-1', sans-serif;
+  font-weight: 400;
+}
+
+.main-title {
+  font-size: 16px;
+  opacity: 0.6;
+}
+
+.year-title {
+  font-size: 12px;
+}
+
+.end-title {
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.pill {
+  stroke-linejoin: round;
+}
+
+.pill-outer {
+  stroke-linejoin: round;
+}
+
+.link {
+  stroke-width: 1;
+  stroke: #ddd;
+}
+
+.pill rect, .pill path {
+  stroke: none;
+  stroke-width:0;
+}
+
+.pill rect.no-stroke {
+  stroke: none;
+  stroke-width:0;
+}
+
+.pill-outline {
+  fill:none;
+  stroke: none;
+  stroke-width:0
+}
+
+.highlight {
+  stroke: black;
+  stroke-width:1.5;
+}
+
+.pill.unhighlight {
+  opacity: 0.3;
+}
+
+.highlight .pill-outline{
+  stroke: black;
+  stroke-width:1.5;
+}
+
+.zoom {
+  cursor: pointer;
+  text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+  text-shadow: 3px 3px 2px rgba(150, 150, 150, 1);
+  font-size: 150%;
+}
+
+.zoom:hover {
+  opacity: 0.8;
+}
+
+.rank-title {
+  cursor: default;
+}
+
+#footer {
+  font-family: 'proxima-nova-1', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  text-align: center;
+  background-color: #EADEBD;
+
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  box-sizing: border-box;
+}
+
+#footer button {
+  text-transform: uppercase;
+  background-color: rgba(255, 255, 255, 0.4);
+  outline: 0;
+  border: 1px solid rgba(150, 150, 150, 1);
+  border-radius: 4px;
+}
