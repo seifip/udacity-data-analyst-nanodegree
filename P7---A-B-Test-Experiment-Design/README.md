@@ -5,16 +5,23 @@
 _List which metrics you will use as invariant metrics and evaluation metrics here._
 
 **Invariant metrics:** Number of cookies, Number of clicks, Click-through-probability
+
 **Evaluation metrics:** Gross conversion, Retention, Net conversion
 
 _For each metric, explain both why you did or did not use it as an invariant metric and why you did or did not use it as an evaluation metric. Also, state what results you will look for in your evaluation metrics in order to launch the experiment._
 
 **Number of cookies:** Good invariant metric because the visits happen before the user sees the experiment, and are thus independent from it.
+
 **Number of user-ids:** Not a good invariant metric because the number of users who enroll in the free trial is dependent on the experiment. Not an ideal evaluation metric because the number of visitors may be different between the experiment and control groups, which would skew the results.
+
 **Number of clicks:** Good invariant metric because the clicks happen before the user sees the experiment, and are thus independent from it.
+
 **Click-through-probability:** Good invariant metric because the clicks happen before the user sees the experiment, and are thus independent from it.
+
 **Gross conversion:** Not a good invariant metric because the number of users who enroll in the free trial is dependent on the experiment. Good evaluation metric because it is directly dependent on the effect of the experiment and allows us to show whether we managed to decrease the cost of enrollments that aren’t likely to become paying customers.
+
 **Retention:** Not a good invariant metric because the number of users who enroll in the free trial is dependent on the experiment. Good evaluation metric because it is directly dependent on the effect of the experiment, and also shows positive financial outcome of the change.
+
 **Net conversion:** Not a good invariant metric because the number of users who enroll in the free trial is dependent on the experiment. Good evaluation metric because it is directly dependent on the effect of the experiment, and also shows positive financial outcome of the change.
 
 I will look at Gross conversion and Net conversion. The first metric will show us whether we lower our costs by introducing the screener. The second metric will show how the change affects our revenues.
@@ -24,8 +31,10 @@ To launch the experiment, I will require Gross conversion to have a practically 
 ###Measuring Standard Deviation
 _List the standard deviation of each of your evaluation metrics._
 
-**Gros conversion:** 0.0202
-**Net conversion:** 0.0156
+```
+Gros conversion: 0.0202
+Net conversion: 0.0156
+```
 
 _For each of your evaluation metrics, indicate whether you think the analytic estimate would be comparable to the the empirical variability, or whether you expect them to be different (in which case it might be worth doing an empirical estimate if there is time). Briefly give your reasoning in each case._
 
@@ -54,22 +63,28 @@ The experiment is not extremely risky given that it does not affect existing pay
 ###Sanity Checks
 _For each of your invariant metrics, give the 95% confidence interval for the value you expect to observe, the actual observed value, and whether the metric passes your sanity check._
 
-**Number of cookies:** [.4988, .5012]; observed .5006; PASS
-**Number of clicks on “Start free trial”:** [.4959, .5041]; observed .5005; PASS
-**Click-through-probability on “Start free trial”:** [.0812, .0830]; observed .0822; PASS
+```
+Number of cookies: [.4988, .5012]; observed .5006; PASS
+Number of clicks on “Start free trial”: [.4959, .5041]; observed .5005; PASS
+Click-through-probability on “Start free trial”: [.0812, .0830]; observed .0822; PASS
+```
 
 ###Result Analysis
 ####Effect Size Tests
 _For each of your evaluation metrics, give a 95% confidence interval around the difference between the experiment and control groups. Indicate whether each metric is statistically and practically significant._
 
-**Gross conversion:** [-.0291, -.0120], statistically significant, practically significant
-**Net conversion:** [-.0116, .0019], not statistically significant, not practically significant
+```
+Gross conversion: [-.0291, -.0120], statistically significant, practically significant
+Net conversion: [-.0116, .0019], not statistically significant, not practically significant
+```
 
 ####Sign Tests
 _For each of your evaluation metrics, do a sign test using the day-by-day data, and report the p-value of the sign test and whether the result is statistically significant._
 
-**Gross conversion:** .0026, statistically significant
-**Net conversion:** .6776, not statistically significant
+```
+Gross conversion: .0026, statistically significant
+Net conversion: .6776, not statistically significant
+```
 
 ####Summary
 _State whether you used the Bonferroni correction, and explain why or why not. If there are any discrepancies between the effect size hypothesis tests and the sign tests, describe the discrepancy and why you think it arose._
