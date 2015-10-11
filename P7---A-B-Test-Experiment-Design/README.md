@@ -110,7 +110,6 @@ Udacity could consider implementing a similar system for the Nanodegree program.
 
 Periodic check up emails should be set up, coming from the assigned team member’s email address. He or she should also be notified of new discussion forum posts made by the user in case they happen to have the expertise to answer the question.
 
-###The Experiment
 My **null hypothesis** is that assigning a single point of contact to new trial signups will not increase Retention by a practically significant amount.
 
 New free trial signups will randomly be assigned to a Control and an Experiment group. The experience for users in the Control group will remain unchanged. Users in the Experiment group will be assigned a random member of the Udacity team and receive an on-site onboarding message and one email follow up from that person.
