@@ -4,29 +4,22 @@
 ###Metric Choice
 _List which metrics you will use as invariant metrics and evaluation metrics here._
 
-**Invariant metrics:** Number of cookies, Number of clicks, Click-through-probability
-
-**Evaluation metrics:** Gross conversion, Retention, Net conversion
+* **Invariant metrics:** Number of cookies, Number of clicks, Click-through-probability
+* **Evaluation metrics:** Gross conversion, Retention, Net conversion
 
 _For each metric, explain both why you did or did not use it as an invariant metric and why you did or did not use it as an evaluation metric. Also, state what results you will look for in your evaluation metrics in order to launch the experiment._
 
-**Number of cookies:** Good invariant metric because the visits happen before the user sees the experiment, and are thus independent from it.
+* **Number of cookies:** Good invariant metric because the visits happen before the user sees the experiment, and are thus independent from it.
+* **Number of user-ids:** Not a good invariant metric because the number of users who enroll in the free trial is dependent on the experiment. Not an ideal evaluation metric because the number of visitors may be different between the experiment and control groups, which would skew the results.
+* **Number of clicks:** Good invariant metric because the clicks happen before the user sees the experiment, and are thus independent from it.
+* **Click-through-probability:** Good invariant metric because the clicks happen before the user sees the experiment, and are thus independent from it.
+* **Gross conversion:** Not a good invariant metric because the number of users who enroll in the free trial is dependent on the experiment. Good evaluation metric because it is directly dependent on the effect of the experiment and allows us to show whether we managed to decrease the cost of enrollments that aren’t likely to become paying customers.
+* **Retention:** Not a good invariant metric because the number of users who enroll in the free trial is dependent on the experiment. Good evaluation metric because it is directly dependent on the effect of the experiment, and also shows positive financial outcome of the change.
+* **Net conversion:** Not a good invariant metric because the number of users who enroll in the free trial is dependent on the experiment. Good evaluation metric because it is directly dependent on the effect of the experiment, and also shows positive financial outcome of the change.
 
-**Number of user-ids:** Not a good invariant metric because the number of users who enroll in the free trial is dependent on the experiment. Not an ideal evaluation metric because the number of visitors may be different between the experiment and control groups, which would skew the results.
+I will look at **Gross conversion** and **Net conversion**. The first metric will show us whether we lower our costs by introducing the screener. The second metric will show how the change affects our revenues.
 
-**Number of clicks:** Good invariant metric because the clicks happen before the user sees the experiment, and are thus independent from it.
-
-**Click-through-probability:** Good invariant metric because the clicks happen before the user sees the experiment, and are thus independent from it.
-
-**Gross conversion:** Not a good invariant metric because the number of users who enroll in the free trial is dependent on the experiment. Good evaluation metric because it is directly dependent on the effect of the experiment and allows us to show whether we managed to decrease the cost of enrollments that aren’t likely to become paying customers.
-
-**Retention:** Not a good invariant metric because the number of users who enroll in the free trial is dependent on the experiment. Good evaluation metric because it is directly dependent on the effect of the experiment, and also shows positive financial outcome of the change.
-
-**Net conversion:** Not a good invariant metric because the number of users who enroll in the free trial is dependent on the experiment. Good evaluation metric because it is directly dependent on the effect of the experiment, and also shows positive financial outcome of the change.
-
-I will look at Gross conversion and Net conversion. The first metric will show us whether we lower our costs by introducing the screener. The second metric will show how the change affects our revenues.
-
-To launch the experiment, I will require Gross conversion to have a practically significant decrease, and Net conversion to have a statistically significant increase.
+To launch the experiment, I will require **Gross conversion** to have a practically significant decrease, and **Net conversion** to have a statistically significant increase.
 
 ###Measuring Standard Deviation
 _List the standard deviation of each of your evaluation metrics._
