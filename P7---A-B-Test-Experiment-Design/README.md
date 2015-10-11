@@ -114,3 +114,6 @@ The **invariant metric** will be the **Number of user-ids**, because the users s
 The **evaluation metric** will be **Retention**, which, if positive and practically significant, will show an increase in revenue resulting from this change.
 
 If Retention is positive and practically significant at the end of the experiment, we can launch the new feature, and expand it with more regular follow up emails and personalized on-site messages throughout the Nanodegree program.
+
+##Resources
+* [Nine Common A/B Testing Pitfalls and How to Avoid Them](http://adobe-target.com/content/dam/adobe/Common_AB_TestingPitfalls_2014.pdf)
