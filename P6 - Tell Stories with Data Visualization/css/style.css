@@ -18,7 +18,8 @@ a, a:visited, a:focus {
 
 .main-title {
   font-size: 16px;
-  opacity: 0.6;
+  font-weight: 700;
+  /* opacity: 0.6; */
 }
 
 .year-title {

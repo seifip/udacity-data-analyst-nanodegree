@@ -32,9 +32,9 @@ var chart = function() {
   var svg = null;
   var g = null;
   var defs = null;
-  var animationOver = false;
 
   function pillPath(width, height, padding) {
+
     var edge = width / 10;
     var halfHeight = height / 2;
 
@@ -49,7 +49,6 @@ var chart = function() {
     return path;
   }
 
-  //draws pills
   function drawPill(selection, width, height, opts) {
     selection.selectAll("rect")
       .data([opts.colour[0]]).enter()
@@ -61,7 +60,6 @@ var chart = function() {
       .attr("fill", function(d) { return d; });
   }
 
-  //parses data as numbers
   function prepareData(rawData) {
     rawData.forEach(function(d) {
       years.forEach(function(y) {
@@ -72,7 +70,6 @@ var chart = function() {
     return rawData;
   }
 
-  //generates links from the data
   function createLinks(data) {
     var links = [];
     data.forEach(function(d) {
@@ -84,7 +81,6 @@ var chart = function() {
     return links.filter(function(l) { return l.start > 0 && l.end > 0; });
   }
 
-  //generates labels from the data
   function getLabels(data) {
     endYears = [];
     data.forEach(function(d) {
@@ -100,8 +96,7 @@ var chart = function() {
           };
           endYears.push(yr);
         } else if( i + 1 === years.length ) {
-          endYears.push({id:d.id, year:years[i], pos:d[years[i]],
-                          name:pillMap.get(d.id).name, index:i});
+          endYears.push({id:d.id, year:years[i], pos:d[years[i]], name:pillMap.get(d.id).name, index:i});
         }
         if((d[years[i]] !== -1) && (i == 0 || i > 0))
         {
@@ -115,23 +110,22 @@ var chart = function() {
 
   var chart = function(selection) {
     selection.each(function(rawData) {
-      data = prepareData(rawData); //parse data
-      var links = createLinks(data); //generate links
-      var cityTitles = getLabels(data); //generate labels
+      data = prepareData(rawData);
+      var links = createLinks(data);
+      var cityTitles = getLabels(data);
 
       svg = d3.select(this).selectAll("svg").data([data]);
       var gEnter = svg.enter().append("svg").append("g");
 
-      //define svg width based on the number of years displayed
       width = (pillWidth + yearSpace) * years.length;
-      //define svg height for 11 languages
       height = (pillHeight + pillSpace) * 11;
 
       svg.attr("width", width + margin.left + margin.right );
       svg.attr("height", height + margin.top + margin.bottom );
-      svg.attr("viewBox", "0 0 " + (width + margin.left + margin.right) + " "
-                                 + (height + margin.top + margin.bottom));
+      svg.attr("viewBox", "0 0 " + (width + margin.left + margin.right) + " " + (height + margin.top + margin.bottom));
       svg.attr("preserveAspectRatio", "xMidYMid");
+
+      aspect = (width + margin.left + margin.right) / (height + margin.left + margin.right);
 
       defs = svg.append("defs");
 
@@ -153,7 +147,6 @@ var chart = function() {
         .attr("dy", pillHeight-2 )
         .attr("y", function(d,i) { return (pillHeight + pillSpace) * i - 4; })
         .attr("fill", "#aaa")
-        //current internet language share in %
         .text(function(d) { return parseFloat(d.share).toFixed(1) + "%"; })
 
       var defpills = defs.selectAll("pill")
@@ -178,23 +171,16 @@ var chart = function() {
         .append("line")
         .attr("class", "link")
         .attr("opacity", 0)
-        .attr("x1", function(d,i) { return ((pillWidth + yearSpace)
-                                      * d.gap) - (yearSpace ); })
-        .attr("y1", function(d,i) { return (pillHeight + pillSpace)
-                                      * (d.start - 1) + (pillHeight / 2); })
-        .attr("x2", function(d,i) { return ((pillWidth + yearSpace)
-                                      * d.gap); })
-        .attr("y2", function(d,i) { return (pillHeight + pillSpace)
-                                      * (d.end - 1) + (pillHeight / 2); });
+        .attr("x1", function(d,i) { return ((pillWidth + yearSpace) * d.gap) - (yearSpace ); })
+        .attr("y1", function(d,i) { return (pillHeight + pillSpace) * (d.start - 1) + (pillHeight / 2); })
+        .attr("x2", function(d,i) { return ((pillWidth + yearSpace) * d.gap); })
+        .attr("y2", function(d,i) { return (pillHeight + pillSpace) * (d.end - 1) + (pillHeight / 2); });
 
       var year = g.selectAll("year").data(years)
         .enter()
         .append("g")
         .attr("class", function(d,i) { return "year year-" + d } )
-        .attr("transform", function(d,i) { return "translate("
-                                            + ((pillWidth + yearSpace) * i)
-                                            + ",0)"; 
-                                         });
+        .attr("transform", function(d,i) { return "translate(" + ((pillWidth + yearSpace) * i) + ",0)";  });
 
       year.append("text")
         .attr("class", "title year-title")
@@ -216,8 +202,8 @@ var chart = function() {
         .attr("transform", function(d,i) {
           return "translate(0," + (d.value - 1) * (pillHeight + pillSpace) + ")";
         })
-        .on("mouseover", highlightBranch) //highlight languages on mouse over
-        .on("mouseout", resetHighlighting); //reset highlighting on mouse out
+        .on("mouseover", highlightBranch)
+        .on("mouseout", resetHighlighting);
 
       g.selectAll("end-title")
         .data(cityTitles)
@@ -245,131 +231,46 @@ var chart = function() {
     });
   };
 
-  //animates content based on the overarching story
   function animateIn() {
-    //list of languages in decline
-    var falling = ["jp", "de", "fr", "ko", "it", "nl"]
-    //list of rising languages
-    var rising = ["sp", "pt", "ar", "ru", "ms"]
-
-    $('.main-title').hide().html("In 2005, the internet remained a privilege...")
-                    .fadeIn(2000).delay(1500).fadeOut(2000)
-    setTimeout(function() {
-      $('.main-title').hide().html("Except China, online content was dominated by developed countries")
-                      .fadeIn(2000).delay(1500).fadeOut(2000)
-    }, 6000);
-    setTimeout(function() {
-      $('.main-title').hide().html("But most Old World languages have seen a rapid decline over the last decade")
-                      .fadeIn(2000).delay(1500)
-    }, 12000);
-    setTimeout(function() {
-      //progressively fading in all languages in decline
-      var n = 0
-      var shown = []
-      var langsInterval = setInterval(function() {
-        defs.selectAll(".pill")
-          .transition()
-          .duration(800)
-          .attr("opacity", function(d) { return ( falling[n] === d.id
-                                                  || $.inArray(d.id, shown) > -1 ) ? 1 : 0;
-                                       })
-        g.selectAll(".link")
-          .transition()
-          .duration(800)
-          .attr("opacity", function(d) { return ( falling[n] === d.id
-                                                  || $.inArray(d.id, shown) > -1 ) ? 1 : 0;
-                                       })
-        shown.push(falling[n])
-        n++
-        if(n > falling.length) {
-            clearInterval(langsInterval);
-            defs.selectAll(".pill")
-              .transition()
-              .duration(800)
-              .attr("opacity", 0)
-            g.selectAll(".link")
-              .transition()
-              .duration(800)
-              .attr("opacity", 0)
-            $('.main-title').fadeOut(2000)
-        }
-      }, 3000);
-    }, 13000);
-    setTimeout(function() {
-      $('.main-title').hide().html("As languages of populated developing countries took over")
-                      .fadeIn(2000).delay(1500)
-    }, 34000);
-    setTimeout(function() {
-      //progressively fading in all rising languages
-      var n = 0
-      var shown = []
-      var langsInterval = setInterval(function() {
-        defs.selectAll(".pill")
-          .transition()
-          .duration(800)
-          .attr("opacity", function(d) { return ( rising[n] === d.id
-                                          || $.inArray(d.id, shown) > -1 ) ? 1 : 0;
-                                       })      
-        g.selectAll(".link")
-          .transition()
-          .duration(800)
-          .attr("opacity", function(d) { return ( rising[n] === d.id
-                                          || $.inArray(d.id, shown) > -1 ) ? 1 : 0;
-                                       })
-        shown.push(rising[n])
-        n++
-        if(n > rising.length) {
-            clearInterval(langsInterval);
-            defs.selectAll(".pill")
-              .transition()
-              .duration(800)
-              .attr("opacity", 0)
-            g.selectAll(".link")
-              .transition()
-              .duration(800)
-              .attr("opacity", 0)
-            $('.main-title').fadeOut(2000)
-        }
-      }, 3000);
-    }, 35000);
-    setTimeout(function() {
-      //show all languages and default title, for the user to explore
-      $('.main-title').hide().html("Languages by internet users: 2005–2015")
-                      .fadeIn(2000)
+    n = 0;
+    var langsInterval = setInterval(function() {
       defs.selectAll(".pill")
         .transition()
         .duration(800)
-        .attr("opacity", 1)
+        .attr("opacity", function(d) { return (pillTypes[n].id === d.id) ? 1 : 0; })      
       g.selectAll(".link")
         .transition()
         .duration(800)
-        .attr("opacity", 1)
-      animationOver = true;
-    }, 54000);
+        .attr("opacity", function(d) { return (pillTypes[n].id === d.id) ? 1 : 0; })
+      n++
+      if(n >= pillTypes.length) {
+          clearInterval(langsInterval);
+          defs.selectAll(".pill")
+            .transition()
+            .duration(800)
+            .attr("opacity", 1)
+          g.selectAll(".link")
+            .transition()
+            .duration(800)
+            .attr("opacity", 1)
+      }
+    }, 3000);
   }
 
-  //highlights a single language
   function highlightBranch(d,i) {
-    if(animationOver)
-    {
-      defs.selectAll(".pill")
-        .classed("highlight", function() {return d3.select(this).attr("id") === d.id;})
-        .classed("unhighlight", function(e) {return e.id !== d.id; });
-      g.selectAll(".link")
-        .classed("highlight", function(e) {return e.id === d.id; })
-        .classed("unhighlight", function(e) {return e.id !== d.id; });
-    }
+    defs.selectAll(".pill")
+      .classed("highlight", function() {return d3.select(this).attr("id") === d.id;})
+      .classed("unhighlight", function(e) {return e.id !== d.id; });
+    g.selectAll(".link")
+      .classed("highlight", function(e) {return e.id === d.id; })
+      .classed("unhighlight", function(e) {return e.id !== d.id; });
   }
 
-  //resets language highlighting
   function resetHighlighting(d,i) {
-    if(animationOver)
-    {
-      defs.selectAll(".pill").classed("highlight", false);
-      defs.selectAll(".pill").classed("unhighlight", false);
-      g.selectAll(".link").classed("highlight", false);
-      g.selectAll(".link").classed("unhighlight", false);
-    }
+    defs.selectAll(".pill").classed("highlight", false);
+    defs.selectAll(".pill").classed("unhighlight", false);
+    g.selectAll(".link").classed("highlight", false);
+    g.selectAll(".link").classed("unhighlight", false);
   }
 
   return chart;
