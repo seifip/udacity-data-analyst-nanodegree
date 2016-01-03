@@ -29,7 +29,7 @@ bonus | 21.06
 salary | 18.58
 fraction_to_poi | 16.64
 
-Finally, I scaled all features using the `scikit-learn` `MinMaxScaler` to avoid problems caused by different units in the dataset.
+Finally, I scaled all features using the `scikit-learn` `MinMaxScaler` to avoid problems caused by different units in the dataset. The algorithm chosen in the end however did not require feature scaling.
 
 ##3. Algorithm selection
 I tested four different algorithms, performing a `scikit-learn` `GridSearchCV` parameter optimization on each of them:
@@ -83,7 +83,7 @@ Mean precision: 0.39
 Mean recall: 0.28
 ```
 
-The selected algorith, Gaussian Naïve Bayes, showed a better recall (i.e., occurence of false negatives) compared to other algorithms, at a slight expense of precision (i.e., occurence of false positives).
+The selected algorith, Gaussian Naïve Bayes, showed a better recall (i.e. the proportion of individuals identified as POIs, who actually are POIs) compared to other algorithms, at a slight expense of precision (i.e. proportion of POIs who have successfully been identified).
 
 This could be a problem if false positives presented real risks, such as in the medical field, but in case of the Enron investigation false negatives are arguably more detrimental, given that individuals identified as POIs will not be convicted based on the results of the analysis alone, but rather undergo further inquiry.
 
