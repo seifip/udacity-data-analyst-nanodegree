@@ -2,6 +2,7 @@ var years = ["2005", "2010", "2015"];
 
 var chart = function() {
 
+  //language codes, associated names & colours
   var pillTypes = [
     {opts: {colour:["#00247D"]}, id:"en", name:"English"},
     {opts: {colour:["#DE2910"]}, id:"zh", name:"Chinese"},
@@ -19,21 +20,26 @@ var chart = function() {
     {opts: {colour:["#999999"]}, id:"xx", name:"Other"}
   ];
 
+  //pills
   var pillMap = d3.map(pillTypes, function(d) { return d.id; });
   var pillWidth = 140;
   var pillHeight = 19;
   var pillSpace = 10;
   var yearSpace = 70;
+  //holders
   var data = [];
+  var svg = null;
+  var g = null;
+  var defs = null;
+  //animation state
+  var animationOver = false;
+  //visualization size and margins
   var aspect = 0;
   var margin = {top: 60, right: 10, bottom: 10, left: 10};
   var width;
   var height;
-  var svg = null;
-  var g = null;
-  var defs = null;
-  var animationOver = false;
 
+  //generates svg path of a hexagonal pill
   function pillPath(width, height, padding) {
     var edge = width / 10;
     var halfHeight = height / 2;
@@ -72,7 +78,10 @@ var chart = function() {
     return rawData;
   }
 
-  //generates links from the data
+  //generates an array of links from the data
+  //start: initial rank of the language
+  //end: new rank of the language
+  //gap: horizontal (year) gap multiplier
   function createLinks(data) {
     var links = [];
     data.forEach(function(d) {
@@ -84,7 +93,14 @@ var chart = function() {
     return links.filter(function(l) { return l.start > 0 && l.end > 0; });
   }
 
-  //generates labels from the data
+  //generates language name labels from the data
+  //the label is displayed on the last year the
+  //language remains in the top ranking
+  //id: language id
+  //year: year
+  //pos: language rank
+  //name: full language name
+  //index: last column the language is in the ranking
   function getLabels(data) {
     endYears = [];
     data.forEach(function(d) {
@@ -117,7 +133,7 @@ var chart = function() {
     selection.each(function(rawData) {
       data = prepareData(rawData); //parse data
       var links = createLinks(data); //generate links
-      var cityTitles = getLabels(data); //generate labels
+      var languageNames = getLabels(data); //generate labels
 
       svg = d3.select(this).selectAll("svg").data([data]);
       var gEnter = svg.enter().append("svg").append("g");
@@ -127,22 +143,25 @@ var chart = function() {
       //define svg height for 11 languages
       height = (pillHeight + pillSpace) * 11;
 
+      //set svg size and aspect ratio attributes
       svg.attr("width", width + margin.left + margin.right );
       svg.attr("height", height + margin.top + margin.bottom );
       svg.attr("viewBox", "0 0 " + (width + margin.left + margin.right) + " "
                                  + (height + margin.top + margin.bottom));
       svg.attr("preserveAspectRatio", "xMidYMid");
 
+      //append pill holder to the svg
       defs = svg.append("defs");
 
+      //append a pill to the holder
       var pill = defs.append("clipPath")
         .attr("id", "pill")
         .append("path")
         .attr("d", pillPath(pillWidth, pillHeight));
 
+      //append labels for current internet language share in %
       g = svg.select("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
       g.selectAll(".rank-title")
         .data(data.filter(function(d) { return (d.share > 0); }))
         .enter()
@@ -153,9 +172,7 @@ var chart = function() {
         .attr("dy", pillHeight-2 )
         .attr("y", function(d,i) { return (pillHeight + pillSpace) * i - 4; })
         .attr("fill", "#aaa")
-        //current internet language share in %
         .text(function(d) { return parseFloat(d.share).toFixed(1) + "%"; })
-
       var defpills = defs.selectAll("pill")
         .data(pillTypes)
         .enter()
@@ -164,22 +181,23 @@ var chart = function() {
         .attr("class", "pill")
         .attr("opacity", 0);
 
+      //draw pills
       defpills.append("g").attr("clip-path", "url(#pill)")
         .each(function(d,i) {
           d3.select(this).call(drawPill, pillWidth, pillHeight, d.opts);
         });
-
       defpills.append("path")
         .attr("class", "pill-outline")
         .attr("d", pillPath(pillWidth, pillHeight));
 
+      //append and position links between pills
       g.selectAll("links").data(links)
         .enter()
         .append("line")
         .attr("class", "link")
         .attr("opacity", 0)
         .attr("x1", function(d,i) { return ((pillWidth + yearSpace)
-                                      * d.gap) - (yearSpace ); })
+                                      * d.gap) - (yearSpace); })
         .attr("y1", function(d,i) { return (pillHeight + pillSpace)
                                       * (d.start - 1) + (pillHeight / 2); })
         .attr("x2", function(d,i) { return ((pillWidth + yearSpace)
@@ -187,6 +205,7 @@ var chart = function() {
         .attr("y2", function(d,i) { return (pillHeight + pillSpace)
                                       * (d.end - 1) + (pillHeight / 2); });
 
+      //append year labels for each row
       var year = g.selectAll("year").data(years)
         .enter()
         .append("g")
@@ -195,7 +214,6 @@ var chart = function() {
                                             + ((pillWidth + yearSpace) * i)
                                             + ",0)"; 
                                          });
-
       year.append("text")
         .attr("class", "title year-title")
         .attr("text-anchor", "middle")
@@ -203,6 +221,9 @@ var chart = function() {
         .attr("dy", -15)
         .text(function(d) { return d; });
 
+      //language branches for interaction
+      //highlight languages on mouse over
+      //reset highlighting on mouse out
       year.selectAll("pill-use")
         .data(function(y) {
           return data.map(function(d) {
@@ -216,11 +237,13 @@ var chart = function() {
         .attr("transform", function(d,i) {
           return "translate(0," + (d.value - 1) * (pillHeight + pillSpace) + ")";
         })
-        .on("mouseover", highlightBranch) //highlight languages on mouse over
-        .on("mouseout", resetHighlighting); //reset highlighting on mouse out
+        .on("mouseover", highlightBranch)
+        .on("mouseout", resetHighlighting);
 
+      //language name labels on the last year the
+      //language appears in the ranking
       g.selectAll("end-title")
-        .data(cityTitles)
+        .data(languageNames)
         .enter()
         .append("text")
         .attr("class", "title end-title")
@@ -235,6 +258,7 @@ var chart = function() {
         .attr("dy", -1 * (pillHeight - 1) + 2)
         .text(function(d) { return d.name; });
 
+      //append the main visualization title
       g.append("text")
         .attr("class", "title main-title")
         .attr("x", 10)
@@ -252,18 +276,28 @@ var chart = function() {
     //list of rising languages
     var rising = ["sp", "pt", "ar", "ru", "ms"]
 
+    //animate in and out the first title
     $('.main-title').hide().html("In 2005, the internet remained a privilege...")
                     .fadeIn(2000).delay(1500).fadeOut(2000)
+    //wait for the first title to fade out, animate in-out second title
     setTimeout(function() {
-      $('.main-title').hide().html("Except China, online content was dominated by developed countries")
+      $('.main-title').hide().html("Except China, most users came from developed countries")
                       .fadeIn(2000).delay(1500).fadeOut(2000)
     }, 6000);
+    //wait for the second title to fade out, animate in-out third title
     setTimeout(function() {
-      $('.main-title').hide().html("But most Old World languages have seen a rapid decline over the last decade")
-                      .fadeIn(2000).delay(1500)
+      $('.main-title').hide().html("But share of Old World users has seen a rapid decline over the last decade")
+                      .fadeIn(2000).delay(1500).fadeOut(2000)
     }, 12000);
+    //wait for the third title to fade out, animate in-out fourth title
     setTimeout(function() {
-      //progressively fading in all languages in decline
+      $('.main-title').hide().html("And speakers of many languages even dropped off from the top ranking")
+                      .fadeIn(2000).delay(1500)
+    }, 18000);
+    //wait for the fourth title to fade out
+    //progressively fade in all languages in decline
+    //then hide all languages and title
+    setTimeout(function() {
       var n = 0
       var shown = []
       var langsInterval = setInterval(function() {
@@ -294,13 +328,16 @@ var chart = function() {
             $('.main-title').fadeOut(2000)
         }
       }, 3000);
-    }, 13000);
+    }, 17000);
+    //fade in and out the fourth title
     setTimeout(function() {
-      $('.main-title').hide().html("As languages of populated developing countries took over")
+      $('.main-title').hide().html("As users speaking languages of populated developing countries took over")
                       .fadeIn(2000).delay(1500)
-    }, 34000);
+    }, 40000);
+    //wait for the fifth title to fade out
+    //progressively fade in all languages on the rise
+    //then hide all languages and title
     setTimeout(function() {
-      //progressively fading in all rising languages
       var n = 0
       var shown = []
       var langsInterval = setInterval(function() {
@@ -331,9 +368,9 @@ var chart = function() {
             $('.main-title').fadeOut(2000)
         }
       }, 3000);
-    }, 35000);
+    }, 39000);
+    //show all languages and default title, for the user to explore
     setTimeout(function() {
-      //show all languages and default title, for the user to explore
       $('.main-title').hide().html("Languages by internet users: 2005–2015")
                       .fadeIn(2000)
       defs.selectAll(".pill")
@@ -345,7 +382,7 @@ var chart = function() {
         .duration(800)
         .attr("opacity", 1)
       animationOver = true;
-    }, 54000);
+    }, 60000);
   }
 
   //highlights a single language

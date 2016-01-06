@@ -61,6 +61,10 @@ This led me to a complete revamp of the initial animation, and the addition of a
 
 "More content will be in Arabic and such than European languages."
 
+After further helpful comments from a Udacity reviewer, I then clarified the titles so that it is clear that the visualization represents the share of internet users by language spoken, rather than the share of content in particular languages (although the former is often used to estimate the latter). I also added an additional title explaining that some of the languages have dropped off the ranking altogether.
+
+My Udacity reviewer also inquired as to the reason why the ranking shows 11, rather than the traditional 10 items. This is the case because it is a ranking of top 10 languages + an one additional item for all "other" languages. This was a choice made by the original data source, WIS, and I tend to agree with it because "other" is not a single language (just as in some rankings "European Union" might have a rank of its own, alongside the individual EU countries).
+
 ##Resources
 Data source:
 http://www.internetworldstats.com/stats7.htm
