@@ -1,16 +1,16 @@
-#Project 5: Identifying Fraud from Enron Emails and Financial Data
+# Project 5: Identifying Fraud from Enron Emails and Financial Data
 In 2000, Enron was one of the largest companies in the United States. By 2002, it had collapsed into bankruptcy due to widespread corporate fraud. In the resulting Federal investigation, a significant amount of typically confidential information entered into the public record, including tens of thousands of emails and detailed financial data for top executives.
 
 In this project, I use machine learning to identify persons of interest based on financial and email data made public as a result of the Enron scandal, as well as a labeled list of individuals who were indicted, reached a settlement or plea deal with the government, or testified in exchange for prosecution immunity.
 
-##1. Goals and dataset
+## 1. Goals and dataset
 The goal of this project is to build a predictive model that can identify persons of interest based on features included in the Enron dataset. Such model could be used to find additional suspects who were not indicted during the original investigation, or to find persons of interest during fraud investigations at other businesses. 
 
 The dataset contains a total of **146 data points** with **21 features**. Of the 146 records, **18 are labeled as persons of interest**.
 
 After visualizing the dataset as a scatter plot, I identified an outlier named `TOTAL`. This is a spreadsheet artifact and it was thus removed. 
 
-##2. Feature selection
+## 2. Feature selection
 I started with a list of features that I intuitively felt are relevant to the investigation: `shared_receipt_with_poi`, `expenses`, `loan_advances`, `long_term_incentive`, `other`, `restricted_stock`, `restricted_stock_deferred`.
 
 Additionally, I created three aggregate features:
@@ -31,16 +31,16 @@ fraction_to_poi | 16.64
 
 Finally, I scaled all features using the `scikit-learn` `MinMaxScaler` to avoid problems caused by different units in the dataset. The algorithm chosen in the end however did not require feature scaling.
 
-##3. Algorithm selection
+## 3. Algorithm selection
 I tested four different algorithms, performing a `scikit-learn` `GridSearchCV` parameter optimization on each of them:
 
-###GaussianNB:
+### GaussianNB:
 ```
 Precision: 0.388484126984
 Recall: 0.282984126984
 ```
 
-###DecisionTree:
+### DecisionTree:
 ```
 Precision: 0.165993506494
 Recall: 0.215702380952
@@ -53,7 +53,7 @@ min_samples_leaf=10,
 min_samples_split=2
 ```
 
-###AdaBoost:
+### AdaBoost:
 ```
 Precision: 0.414
 Recall: 0.206305555556
@@ -71,7 +71,7 @@ Tuning a machine learning algorithm is crucial because different functions and i
 
 I performed automatic parameter tuning using `scikit-learn` `GridSearchCV` during the algorithm selection process.
 
-##4. Validation
+## 4. Validation
 Validation allows us to assess how well the chosen algorithm generalizes beyond the dataset used to train it—that is, identify the risk of overfitting.
 
 One of the biggest mistakes one can make is therefore to use the same data fro training and testing.
