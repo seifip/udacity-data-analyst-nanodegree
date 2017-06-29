@@ -1,11 +1,11 @@
 
-#Data Analyst Nanodegree Portfolio
+# Data Analyst Nanodegree Portfolio
 
 <img src="https://pbs.twimg.com/media/B4LemTlIMAAy8AM.jpg">
 
 This repository contains my work for Udacity's Data Analyst Nanodegree program, July 2015 cohort.
 
-##Projects:
+## Projects:
 
 * *Project 1:* [Test a Perceptual Phenomenon](https://github.com/seifip/udacity-data-analyst-nanodegree/tree/master/P1%20-Test%20a%20Perceptual%20Phenomenon)
 * *Project 2:* [Analyzing the NYC Subway Dataset](https://github.com/seifip/udacity-data-analyst-nanodegree/tree/master/P2%20-%20Analyzing%20the%20NYC%20Subway%20Dataset)
@@ -15,7 +15,7 @@ This repository contains my work for Udacity's Data Analyst Nanodegree program, 
 * *Project 6:* [Tell Stories with Data Visualization](https://github.com/seifip/udacity-data-analyst-nanodegree/tree/master/P6%20-%20Tell%20Stories%20with%20Data%20Visualization) 
 * *Project 7:* [Design and Analyze an A/B Test](https://github.com/seifip/udacity-data-analyst-nanodegree/tree/master/P7%20-%20Design%20and%20Analyze%20an%20A-B%20Test)
 
-##Courses taken:
+## Courses taken:
 * Descriptive Statistics
 * Inferential Statistics
 * Intro to Python
@@ -26,7 +26,7 @@ This repository contains my work for Udacity's Data Analyst Nanodegree program, 
 * Data Visualization and D3.js
 * A/B Testing
 
-##Skills acquired:
+## Skills acquired:
 * Python (inc. numpy, pandas, scikit-learn, ggplot...)
 * MongoDB
 * MapReduce
